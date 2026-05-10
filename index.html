@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إِلْهَام - Perfume</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- CSS FILE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 1. Intro Section -->
+    <section id="intro-section" class="active">
+        <div id="canvas-container"></div>
+        <div class="intro-overlay">
+            <h1 class="fade-in">إِلْهَام</h1>
+            <p class="fade-in subtitle">The Essence of Elegance</p>
+            <button id="enter-btn" class="gold-btn">اكتشف السحر</button>
+        </div>
+    </section>
+
+    <!-- 2. Login Section -->
+    <section id="login-section">
+        <div class="login-card">
+            <div class="login-logo">إِلْهَام</div>
+            <h2>تسجيل الدخول</h2>
+
+            <div class="input-group">
+                <label>اسم المستخدم</label>
+                <input type="text" id="username" placeholder="أدخل اسم المستخدم">
+            </div>
+
+            <div class="input-group">
+                <label>كلمة المرور</label>
+                <input type="password" id="password" placeholder="أدخل كلمة المرور">
+            </div>
+
+            <button class="gold-btn" id="login-btn">دخول</button>
+        </div>
+    </section>
+
+    <!-- 3. Main Website -->
+    <main id="main-content">
+        <header>
+            <nav>
+                <div class="logo">إِلْهَام</div>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#men-page" onclick="showPage('men-page')">رجالي</a></li>
+                    <li><a href="#women-page" onclick="showPage('women-page')">نسائي</a></li>
+                    <li><a href="#ai-page" onclick="showPage('ai-page')">المستشار الذكي</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="home" class="hero">
+            <div class="hero-particles" id="hero-particles"></div>
+            <div class="hero-text">
+                <h1>عالم إِلْهَام</h1>
+                <p>عطور صُممت لتعكس شخصيتك الفريدة</p>
+                <div class="hero-btns">
+                    <button class="gold-btn" onclick="showPage('men-page')">العطور الرجالية</button>
+                    <button class="gold-btn outline" onclick="showPage('women-page')">العطور النسائية</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="men-page" class="page-section hidden">
+            <div class="page-header">
+                <h2>العطور الرجالية</h2>
+                <p>قوة وأناقة في كل رشة</p>
+            </div>
+            <div class="perfume-grid" id="men-grid"></div>
+        </div>
+
+        <div id="women-page" class="page-section hidden">
+            <div class="page-header">
+                <h2>العطور النسائية</h2>
+                <p>رقة وجمال لكل لحظة</p>
+            </div>
+            <div class="perfume-grid" id="women-grid"></div>
+        </div>
+
+        <div id="ai-page" class="page-section hidden">
+            <div class="ai-container">
+                <div class="ai-header">
+                    <div class="ai-icon">✦</div>
+                    <h2>المستشار الذكي</h2>
+                    <p>أجب على أسئلتنا واكتشف عطرك المثالي وشخصيتك العطرية</p>
+                </div>
+
+                <div id="quiz-container">
+                    <div id="question-box">
+                        <div class="quiz-progress" id="quiz-progress"></div>
+                        <p id="question-text" class="question-text">هل أنت مستعد لاكتشاف عطرك؟</p>
+
+                        <div id="options-container">
+                            <button class="gold-btn" onclick="startQuiz()">ابدأ الآن ✦</button>
+                        </div>
+                    </div>
+
+                    <div id="result-box" class="hidden">
+                        <div class="result-header">
+                            <div class="result-icon">✦</div>
+                            <h3>عطرك المثالي</h3>
+                        </div>
+
+                        <div id="recommended-perfume"></div>
+                        <div id="personality-text" class="personality-box"></div>
+
+                        <button class="gold-btn" onclick="startQuiz()" style="margin-top:20px">أعد الاختبار</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perfume-modal" class="modal hidden">
+            <div class="modal-overlay" onclick="closeModal()"></div>
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">إِلْهَام</div>
+            <p>&copy; 2026 جميع الحقوق محفوظة - إِلْهَام للعطور الفاخرة</p>
+        </footer>
+    </main>
+
+    <!-- JS FILE -->
+    <script src="script.js"></script>
+</body>
+</html>
